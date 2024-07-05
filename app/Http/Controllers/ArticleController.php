@@ -24,12 +24,12 @@ class ArticleController extends Controller
 
     public function create()
     {
-        $allTagNames = Tag::all()->map(function ($tag) {
-            return ['text' => $tag->name];
+        $allTagNames = Tag::all()->map(function ($tag) { // Tag::all()で全てのタグを取得
+            return ['text' => $tag->name]; // mapメソッドで['text' => $tag->name']の形に変換
         });
 
-        return view('articles.create', [
-            'allTagNames' => $allTagNames,
+        return view('articles.create', [ // viewメソッドでarticles.createビューを表示
+            'allTagNames' => $allTagNames, // タグ名をビューに渡す
         ]);
     }
 
